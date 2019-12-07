@@ -4,6 +4,7 @@ import './registerServiceWorker';
 import router from './router';
 import store from './store';
 import 'ant-design-vue/dist/antd.min.css';
+import 'magic.css/dist/magic.min.css';
 import { Button, Col, Row, notification, Icon } from 'ant-design-vue';
 
 Vue.config.productionTip = false;

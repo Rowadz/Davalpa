@@ -6,12 +6,13 @@
       </form>
     </section>
     <a-button
-      class="height-100"
+      class="height-100 magictime vanishIn"
       type="primary"
       shape="circle"
       icon="download"
       :size="'large'"
       :loading="loading"
+      :class="{ 'magictime swashOut': navigate }"
       @click="openFileUpload"
     />
   </a-row>
@@ -19,13 +20,17 @@
 
 <script>
 // @ is an alias to /src
+import { mapGetters, mapActions } from "vuex";
+import router from "../router";
 /* eslint-disable no-console */
 export default {
   name: "Home",
   data: () => ({
-    loading: false
+    loading: false,
+    navigate: false
   }),
   methods: {
+    ...mapActions(["storeData"]),
     openFileUpload() {
       this.$refs.fileInput.click();
     },
@@ -35,22 +40,33 @@ export default {
         const [file] = this.$refs.fileInput.files;
         const reader = new FileReader();
         reader.onload = e => {
-          console.log(e.target.result);
+          try {
+            this.storeData(JSON.parse(e.target.result));
+            this.navigate = true;
+            this.not(
+              "Read your file successfully",
+              "Now Davalpa will do some calculation, this might take some time plz wait",
+              <a-icon type="smile" style="color: #108ee9" />
+            );
+            setTimeout(() => {
+              router.push({ path: "wizard" });
+            }, 1000);
+          } catch {
+            this.err();
+          }
         };
         reader.readAsText(file, "UTF-8");
-        this.not(
-          "Read your file successfully",
-          "Now Davalpa will do some calculation, this might take some time plz wait",
-          <a-icon type="smile" style="color: #108ee9" />
-        );
-      } catch (error) {
-        this.loading = false;
-        this.not(
-          "Oops!",
-          "Davalpa is not powerful or smart enough to process that",
-          <a-icon type="frown" style="color: #108ee9" />
-        );
+      } catch {
+        this.err();
       }
+    },
+    err() {
+      this.loading = false;
+      this.not(
+        "Oops!",
+        "Davalpa is not powerful or smart enough to process that",
+        <a-icon type="frown" style="color: #108ee9" />
+      );
     },
     not(message, description, icon) {
       this.$notification.open({ message, description, icon });
