@@ -5,7 +5,6 @@ const state = {
 
 const actions = {
   storeData(d: any, data: any) {
-    console.log(d, data);
     d.commit('setData', data);
   }
 };

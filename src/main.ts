@@ -5,13 +5,25 @@ import router from './router';
 import store from './store';
 import 'ant-design-vue/dist/antd.min.css';
 import 'magic.css/dist/magic.min.css';
-import { Button, Col, Row, notification, Icon } from 'ant-design-vue';
+import {
+  Button,
+  Col,
+  Row,
+  notification,
+  Icon,
+  Tabs,
+  Radio,
+  Collapse
+} from 'ant-design-vue';
 
 Vue.config.productionTip = false;
 Vue.use(Button)
   .use(Col)
   .use(Row)
-  .use(Icon);
+  .use(Icon)
+  .use(Tabs)
+  .use(Radio)
+  .use(Collapse);
 
 Vue.prototype.$notification = notification;
 
