@@ -3,17 +3,13 @@
     <a-row type="flex" justify="space-around" class="magictime foolishIn">
       <h1>🧙‍♂️ Welcome to Davalpa's wizard 🧙</h1>
     </a-row>
-    <a-row
-      type="flex"
-      justify="space-around"
-      class="min-vh-100 magictime swashIn"
-    >
+    <a-row type="flex" justify="space-around" class="magictime swashIn mb-2 min-vh-100">
       <a-tabs defaultActiveKey="1" class="w-100">
         <a-tab-pane tab="Insights" key="1">
           <wizard-info></wizard-info>
         </a-tab-pane>
-        <a-tab-pane tab="Chart and options" key="2" forceRender>
-          Content of Tab Pane 2
+        <a-tab-pane tab="Charts" key="2" forceRender v-if="getXYAxis.y && getXYAxis.x">
+          <wizard-chart></wizard-chart>
         </a-tab-pane>
       </a-tabs>
     </a-row>
@@ -22,12 +18,18 @@
 
 <script>
 // @ is an alias to /src
-import WizardInfo from '../components/wizard/WizardInfo';
+import WizardInfo from "../components/wizard/WizardInfo";
+import WizardChart from "../components/wizard/Chart";
+import { mapGetters } from "vuex";
 /* eslint-disable no-console */
 export default {
-  name: 'wizard',
+  name: "wizard",
+  computed: {
+    ...mapGetters(["getXYAxis"])
+  },
   components: {
-    'wizard-info': WizardInfo
+    "wizard-info": WizardInfo,
+    "wizard-chart": WizardChart
   }
 };
 </script>
