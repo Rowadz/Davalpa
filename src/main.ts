@@ -13,7 +13,9 @@ import {
   Icon,
   Tabs,
   Radio,
-  Collapse
+  Collapse,
+  Statistic,
+  Popover
 } from 'ant-design-vue';
 
 Vue.config.productionTip = false;
@@ -23,7 +25,9 @@ Vue.use(Button)
   .use(Icon)
   .use(Tabs)
   .use(Radio)
-  .use(Collapse);
+  .use(Collapse)
+  .use(Statistic)
+  .use(Popover);
 
 Vue.prototype.$notification = notification;
 

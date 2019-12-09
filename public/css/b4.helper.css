@@ -35,6 +35,10 @@ html {
           box-sizing: inherit;
 }
 
+.pointer{
+  cursor: pointer;
+}
+
 .container {
   width: 100%;
   padding-right: 15px;

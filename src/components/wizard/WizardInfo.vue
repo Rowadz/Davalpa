@@ -1,20 +1,17 @@
 <template>
   <section>
-    <levels></levels>
+    <!-- <levels></levels> -->
+    <keys></keys>
   </section>
 </template>
 
 <script>
 /* eslint-disable no-console */
-import Levels from "./components/Levels";
+import Keys from './components/Keys';
 export default {
-  name: "wizard-info",
-  props: ["json"],
+  name: 'wizard-info',
   components: {
-    levels: Levels
-  },
-  created() {
-    console.log(this.json);
+    keys: Keys
   }
 };
 </script>
