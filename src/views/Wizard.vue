@@ -11,6 +11,10 @@
         <a-tab-pane tab="Charts" key="2" forceRender v-if="getXYAxis.y && getXYAxis.x">
           <wizard-chart></wizard-chart>
         </a-tab-pane>
+        <a-tab-pane tab="See your Data" key="3" forceRender v-if="getXYAxis.y && getXYAxis.x">
+          <!-- <wizard-chart></wizard-chart> -->
+          <!-- <wizard-json></wizard-json> -->
+        </a-tab-pane>
       </a-tabs>
     </a-row>
   </section>
@@ -20,6 +24,7 @@
 // @ is an alias to /src
 import WizardInfo from "../components/wizard/WizardInfo";
 import WizardChart from "../components/wizard/Chart";
+// import WizardJson from "../components/wizard/Json";
 import { mapGetters } from "vuex";
 /* eslint-disable no-console */
 export default {
@@ -29,7 +34,8 @@ export default {
   },
   components: {
     "wizard-info": WizardInfo,
-    "wizard-chart": WizardChart
+    "wizard-chart": WizardChart,
+    // "wizard-json": WizardJson
   }
 };
 </script>
