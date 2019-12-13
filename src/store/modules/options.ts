@@ -3,7 +3,9 @@ const state = {
   options: [],
   selectedOptions: {
     xAxis: null,
-    yAxis: null
+    yAxis: null,
+    aggFun: null,
+    aggCol: null
   }
 };
 
@@ -26,6 +28,14 @@ const getters = {
   getXYAxis(state: any) {
     const { xAxis, yAxis } = state.selectedOptions;
     return { x: xAxis, y: yAxis };
+  },
+  getAggFun(state: any) {
+    const { aggFun } = state.selectedOptions;
+    return aggFun;
+  },
+  getAggCol(state: any) {
+    const { aggCol } = state.selectedOptions;
+    return aggCol;
   }
 };
 

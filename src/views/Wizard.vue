@@ -8,13 +8,18 @@
         <a-tab-pane tab="Insights" key="1">
           <wizard-info></wizard-info>
         </a-tab-pane>
-        <a-tab-pane tab="Charts" key="2" forceRender v-if="getXYAxis.y && getXYAxis.x">
+        <a-tab-pane
+          tab="Charts"
+          key="2"
+          forceRender
+          v-if="getXYAxis.y && getXYAxis.x && getAggCol && getAggFun"
+        >
           <wizard-chart></wizard-chart>
         </a-tab-pane>
-        <a-tab-pane tab="See your Data" key="3" forceRender v-if="getXYAxis.y && getXYAxis.x">
-          <!-- <wizard-chart></wizard-chart> -->
-          <!-- <wizard-json></wizard-json> -->
-        </a-tab-pane>
+        <!-- <a-tab-pane tab="See your Data" key="3" forceRender v-if="getXYAxis.y && getXYAxis.x"> -->
+        <!-- <wizard-chart></wizard-chart> -->
+        <!-- <wizard-json></wizard-json> -->
+        <!-- </a-tab-pane> -->
       </a-tabs>
     </a-row>
   </section>
@@ -30,11 +35,11 @@ import { mapGetters } from "vuex";
 export default {
   name: "wizard",
   computed: {
-    ...mapGetters(["getXYAxis"])
+    ...mapGetters(["getXYAxis", "getAggFun", "getAggCol"])
   },
   components: {
     "wizard-info": WizardInfo,
-    "wizard-chart": WizardChart,
+    "wizard-chart": WizardChart
     // "wizard-json": WizardJson
   }
 };

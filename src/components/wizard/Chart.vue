@@ -6,18 +6,29 @@
 /* eslint-disable no-console */
 import { lightningChart, SolidLine } from "@arction/lcjs";
 import { mapGetters } from "vuex";
-import { chain, zipObject, mapValues, groupBy, omit, sumBy } from "lodash";
+import {
+  chain,
+  zipObject,
+  mapValues,
+  groupBy,
+  omit,
+  sumBy,
+  meanBy
+} from "lodash";
 export default {
   name: "wizard-chart",
   computed: {
-    ...mapGetters(["getSelectedOptions", "getData", "getXYAxis"])
+    ...mapGetters([
+      "getSelectedOptions",
+      "getData",
+      "getXYAxis",
+      "getAggFun",
+      "getAggCol"
+    ])
   },
   mounted() {
-    const chart = lightningChart().ChartXY({
-      containerId: "chart-test",
-      height: "600"
-    });
     const { x, y } = this.getXYAxis;
+    const aggFunc = this.getAggFun;
     // console.log(
     //   chain(this.getData)
     //     .groupBy(x)
@@ -29,27 +40,18 @@ export default {
       d.map(vizData => omit(vizData, x))
     );
     Object.keys(z).forEach(key => {
-      z[key] = mapValues(groupBy(z[key], "month"), d =>
-        d.map(vizData => omit(vizData, "month"))
+      z[key] = mapValues(groupBy(z[key], y), d =>
+        d.map(vizData => omit(vizData, y))
       );
       Object.keys(z[key]).forEach(k => {
-        z[key][k] = sumBy(z[key][k], o => o.number);
+        z[key][k] =
+          aggFunc === "sumBy"
+            ? sumBy(z[key][k], o => o[this.getAggCol])
+            : meanBy(z[key][k], o => o[this.getAggCol]);
       });
     });
 
     console.log(z);
-
-    chart.setTitle("Getting Started");
-
-    const lineSeries = chart.addLineSeries();
-
-    lineSeries.setStrokeStyle(style => style.setThickness(5));
-    const { xAxis, yAxis } = this.getSelectedOptions;
-    Window.x = lineSeries.add(
-      this.getData.map(obj => {
-        return { x: obj[xAxis], y: obj[yAxis] };
-      })
-    );
   }
 };
 </script>
