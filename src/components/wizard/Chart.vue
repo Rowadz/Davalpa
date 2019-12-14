@@ -4,8 +4,7 @@
 
 <script>
 /* eslint-disable no-console */
-import { lightningChart, SolidLine } from "@arction/lcjs";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import {
   chain,
   zipObject,
@@ -26,6 +25,10 @@ export default {
       "getAggCol"
     ])
   },
+  methods: {
+    ...mapActions(["storeModifiedData"])
+  },
+  created() {},
   mounted() {
     const { x, y } = this.getXYAxis;
     const aggFunc = this.getAggFun;
@@ -50,7 +53,7 @@ export default {
             : meanBy(z[key][k], o => o[this.getAggCol]);
       });
     });
-
+    this.storeModifiedData(z);
     console.log(z);
   }
 };

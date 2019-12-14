@@ -60,17 +60,29 @@ export default {
   methods: {
     ...mapActions(["storeSelectedOptions"]),
     onYAxisChange(y) {
-      this.storeSelectedOptions({ yAxis: y });
+      this.storeSelectedOptions({ yAxis: null, aggFun: null, aggCol: null });
+      setTimeout(() => this.storeSelectedOptions({ yAxis: y }), 0);
     },
     onXAxisChange(x) {
       this.storeSelectedOptions({ xAxis: null });
-      setTimeout(() => this.storeSelectedOptions({ xAxis: x, yAxis: null }), 0);
+      setTimeout(
+        () =>
+          this.storeSelectedOptions({
+            xAxis: x,
+            yAxis: null,
+            aggFun: null,
+            aggCol: null
+          }),
+        0
+      );
     },
     onAggFuncChange(aggFun) {
-      this.storeSelectedOptions({ aggFun });
+      this.storeSelectedOptions({ aggFun: null, aggCol: null });
+      setTimeout(() => this.storeSelectedOptions({ aggFun }), 0);
     },
     onAggColumnChange(aggCol) {
-      this.storeSelectedOptions({ aggCol });
+      this.storeSelectedOptions({ aggCol: null });
+      setTimeout(() => this.storeSelectedOptions({ aggCol }), 0);
     }
   }
 };

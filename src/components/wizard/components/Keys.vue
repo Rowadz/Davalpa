@@ -1,6 +1,6 @@
 <template>
   <a-row :gutter="16">
-    <a-col :span="8" v-for="(value, index) in mapDataToKeys()" v-bind:key="index">
+    <a-col :span="8" v-for="(value, index) in info" v-bind:key="index">
       <a-statistic :title="value.title" :value="value.value">
         <template v-slot:suffix>
           <a-popover title="Data Insight">
@@ -10,7 +10,6 @@
               <b>{{ value.value }}</b> times
             </template>
             <a-icon type="question-circle" />
-            <!-- <span class="pointer">🤔</span> -->
           </a-popover>
         </template>
       </a-statistic>
@@ -23,14 +22,8 @@ import { mapGetters, mapActions } from "vuex";
 /* eslint-disable no-console */
 export default {
   computed: {
-    ...mapGetters(["getData"])
-  },
-  created() {
-    console.log(this.mapDataToKeys());
-  },
-  methods: {
-    ...mapActions(["storeOptions"]),
-    mapDataToKeys() {
+    ...mapGetters(["getData"]),
+    info() {
       const countObj = Object.create(null);
       const shouldBeSortedArr = [];
       this.getData.forEach(e =>
@@ -46,6 +39,9 @@ export default {
       this.storeOptions(shouldBeSortedArr);
       return shouldBeSortedArr.sort((a, b) => b.value - a.value);
     }
+  },
+  methods: {
+    ...mapActions(["storeOptions"])
   }
 };
 </script>
