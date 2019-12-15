@@ -1,7 +1,7 @@
 <template>
   <a-row type="flex" justify="space-around" align="middle">
     <section class="w-100">
-      <a-popover title="Information about the Pie Chart">
+      <a-popover title="Information about the bar Chart">
         <template slot="content">
           <p>
             <strong>This bar chart shows only 3 dimensional data</strong>,
@@ -28,7 +28,6 @@ import "echarts/lib/chart/bar";
 import "echarts/lib/component/legendScroll";
 import "echarts/lib/component/legend";
 import "echarts/lib/component/tooltip";
-// import "echarts/lib/component/title";
 import "echarts/lib/component/toolbox";
 
 export default {
@@ -54,7 +53,6 @@ export default {
         if (mapper.has(key)) {
           const { search, i } = mapper.get(key);
           index = search.includes(key2) ? i : 0;
-          //   console.log(index);
         }
         const data = Array.from({ length: xAxis.length }).fill(0);
         data[index] = this.getModifiedData[key][key2];
@@ -78,33 +76,6 @@ export default {
       });
     });
     console.log(holder);
-    // const series = xAxis.map(key => {
-    //   return Object.keys(this.getModifiedData[key]).reduce((o, dd) => {
-    //     // console.log(dd);
-    //     if (!legends.includes(dd)) {
-    //       legends.push(dd);
-    //     }
-    //     let index = 0;
-    //     if (mapper.has(key)) {
-    //       const { search, i } = mapper.get(key);
-    //       index = search.includes(dd) ? i : 0;
-    //       //   console.log(index);
-    //     }
-    //     const data = Array.from({ length: xAxis.length }).fill(0);
-    //     data[index] = this.getModifiedData[key][dd];
-    //     return {
-    //       ...o,
-    //       name: dd,
-    //       type: "bar",
-    //       data,
-    //       animationType: "scale",
-    //       animationEasing: "elasticOut",
-    //       animationDelay: () => Math.random() * 200
-    //     };
-    //   }, {});
-    // });
-    // console.log(legends, xAxis, series);
-    // console.log(series);
     this.chart = bar({
       legends,
       xAxis,
@@ -114,7 +85,6 @@ export default {
         {}
       )
     });
-    // console.log(this.chart);y
   },
   data() {
     return {
