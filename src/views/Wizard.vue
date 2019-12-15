@@ -1,9 +1,9 @@
 <template>
   <section class="container mt-5">
-    <a-row type="flex" justify="space-around" class="magictime foolishIn">
+    <a-row type="flex" justify="space-around">
       <h1>🧙‍♂️ Welcome to Davalpa's wizard 🧙</h1>
     </a-row>
-    <a-row type="flex" justify="space-around" class="magictime swashIn mb-2 min-vh-100">
+    <a-row type="flex" justify="space-around" class="mb-2 min-vh-100">
       <a-tabs defaultActiveKey="1" class="w-100">
         <a-tab-pane tab="Insights" key="1">
           <wizard-info></wizard-info>
