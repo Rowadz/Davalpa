@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Davalpa/precache-manifest.713322ccf56b9158a16a4dd3f18751f2.js"
+  "/Davalpa/precache-manifest.f1d64740c3a78912d5cb3b05eec563a1.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "davalpa"});

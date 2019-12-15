@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5b25877ce9e860f618b1",
+    "revision": "688cab2b37524a22f766",
     "url": "/Davalpa/css/app.de6e91d5.css"
   },
   {
@@ -16,12 +16,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Davalpa/img/lvl1.png"
   },
   {
-    "revision": "c59e2dfc4c3a998bfab445f7cf275cbc",
+    "revision": "1e2d9351d88d12239f985f9012e82728",
     "url": "/Davalpa/index.html"
   },
   {
-    "revision": "5b25877ce9e860f618b1",
-    "url": "/Davalpa/js/app.6d2084bb.js"
+    "revision": "688cab2b37524a22f766",
+    "url": "/Davalpa/js/app.547acce4.js"
   },
   {
     "revision": "ab20dc7e112ac03edc75",
