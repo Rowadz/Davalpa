@@ -20,7 +20,7 @@ import ChartContainer from "./ChartContainer";
 export default {
   data() {
     return {
-      charts: ["pie", "line"],
+      charts: ["pie", "bar"],
       chart: null
     };
   },

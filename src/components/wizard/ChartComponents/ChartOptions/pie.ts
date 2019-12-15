@@ -1,3 +1,4 @@
+import colors from './colors';
 const pie = (data: any) => ({
   title: {
     text: 'Pie Chart',
@@ -42,6 +43,7 @@ const pie = (data: any) => ({
           shadowColor: 'rgba(0, 0, 0, 0.5)'
         }
       },
+      // color: colors,
       roseType: data.roseType,
       animationType: 'scale',
       animationEasing: 'elasticOut',

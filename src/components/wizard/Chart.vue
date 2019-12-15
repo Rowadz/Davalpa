@@ -7,17 +7,13 @@
       <a-button type="dashed" icon="pie-chart" size="large" @click="addChart" shape="circle"></a-button>
     </a-popover>
 
-    <a-col
-      :span="24"
-      v-for="(chartNum, index) in chartNum"
-      :key="index"
-      class="m-2"
-      style="min-height: 200px;"
-    >
-      <a-divider orientation="right">
-        <a-button type="danger" icon="close" @click="deleteChart(chartNum)" />
-      </a-divider>
-      <chart-type></chart-type>
+    <a-col :span="24" v-for="(x, index) in chartNum" :key="index">
+      <section v-if="!del.includes(x)" style="min-height: 200px;" class="m-2">
+        <a-divider orientation="right">
+          <a-button type="danger" icon="close" @click="deleteChart(x)" />
+        </a-divider>
+        <chart-type></chart-type>
+      </section>
     </a-col>
   </a-row>
 </template>
@@ -53,7 +49,8 @@ export default {
       this.chartNum.push(Date.now());
     },
     deleteChart(dateNow) {
-      this.chartNum = this.chartNum.filter(d => d !== dateNow);
+      // this.chartNum = this.chartNum.filter(d => d !== dateNow);
+      this.del.push(dateNow);
     }
   },
   created() {},
@@ -82,14 +79,14 @@ export default {
       });
     });
     this.storeModifiedData(z);
-    console.log(z);
   },
   components: {
     "chart-type": ChartType
   },
   data() {
     return {
-      chartNum: []
+      chartNum: [],
+      del: []
     };
   }
 };

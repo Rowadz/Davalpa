@@ -41,6 +41,7 @@ export default {
         const reader = new FileReader();
         reader.onload = e => {
           try {
+            console.log(e.type);
             this.storeData(JSON.parse(e.target.result));
             this.navigate = true;
             this.not(
