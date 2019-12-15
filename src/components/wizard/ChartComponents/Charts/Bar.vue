@@ -4,13 +4,11 @@
       <a-popover title="Information about the Pie Chart">
         <template slot="content">
           <p>
-            <strong>This pie chart shows only 2 dimensional data</strong>,
-            so even if you have 2 lvls of group, you will see only data with x/y axis only
+            <strong>This bar chart shows only 3 dimensional data</strong>,
           </p>
           <p>
-            for example if you have a music data set and you grouped data by genre
-            and artist name the summed the data by length,
-            the chart will only show you genere by length (summed)
+            but keep in mind that you need to understand your data, so you can create a
+            chart that make sense
           </p>
         </template>
         <a-button shape="circle" icon="exclamation-circle"></a-button>
@@ -30,7 +28,7 @@ import "echarts/lib/chart/bar";
 import "echarts/lib/component/legendScroll";
 import "echarts/lib/component/legend";
 import "echarts/lib/component/tooltip";
-import "echarts/lib/component/title";
+// import "echarts/lib/component/title";
 import "echarts/lib/component/toolbox";
 
 export default {

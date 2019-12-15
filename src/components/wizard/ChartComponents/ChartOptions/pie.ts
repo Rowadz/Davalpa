@@ -1,9 +1,9 @@
 import colors from './colors';
 const pie = (data: any) => ({
   title: {
-    text: 'Pie Chart',
+    // text: 'Pie Chart',
     // subtext: '纯属虚构',
-    x: 'center'
+    // x: 'center'
   },
   tooltip: {
     trigger: 'item',
