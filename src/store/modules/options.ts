@@ -15,6 +15,9 @@ const actions = {
   },
   storeSelectedOptions(d: any, options: any) {
     d.commit('setSelectedOptions', options);
+  },
+  clearOptions(d: any) {
+    d.commit('clearOptions');
   }
 };
 
@@ -48,6 +51,17 @@ const mutations = {
       ...state.selectedOptions,
       ...selectedOptions
     };
+  },
+  clearOptions(state: any) {
+    Object.assign(state, {
+      options: [],
+      selectedOptions: {
+        xAxis: null,
+        yAxis: null,
+        aggFun: null,
+        aggCol: null
+      }
+    });
   }
 };
 

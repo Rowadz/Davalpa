@@ -6,6 +6,9 @@ const state = {
 const actions = {
   storeData(d: any, data: any) {
     d.commit('setData', data);
+  },
+  clearData(d: any) {
+    d.commit('clear');
   }
 };
 
@@ -18,6 +21,9 @@ const getters = {
 const mutations = {
   setData(state: any, data: Array<any>) {
     state.data = data;
+  },
+  clear(state: any) {
+    Object.assign(state, { data: [] });
   }
 };
 

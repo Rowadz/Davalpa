@@ -23,7 +23,7 @@ const mutations = {
     state.modifiedData = data;
   },
   clear(state: any) {
-    state.modifiedData = null;
+    Object.assign(state, { modifiedData: null });
   }
 };
 

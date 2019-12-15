@@ -2,6 +2,7 @@
   <section class="container mt-5">
     <a-row type="flex" justify="space-around">
       <h1>🧙‍♂️ Welcome to Davalpa's wizard 🧙</h1>
+      <a-button type="danger" shape="circle" icon="close" @click="clearAll" />
     </a-row>
     <a-row type="flex" justify="space-around" class="mb-2 min-vh-100">
       <a-tabs defaultActiveKey="1" class="w-100">
@@ -38,13 +39,23 @@
 import WizardInfo from "../components/wizard/WizardInfo";
 import WizardChart from "../components/wizard/Chart";
 // import WizardJson from "../components/wizard/Json";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import WizardDownload from "../components/wizard/Download";
+import router from "../router";
 /* eslint-disable no-console */
 export default {
   name: "wizard",
   computed: {
     ...mapGetters(["getXYAxis", "getAggFun", "getAggCol"])
+  },
+  methods: {
+    ...mapActions(["clearData", "clearModifiedData", "clearOptions"]),
+    clearAll() {
+      this.clearData();
+      this.clearModifiedData();
+      this.clearOptions();
+      router.push({ path: "/" });
+    }
   },
   components: {
     "wizard-info": WizardInfo,
