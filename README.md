@@ -12,6 +12,16 @@ see it [here](https://mohammedal-rowad.github.io/Davalpa/)
 - [vuex](https://vuex.vuejs.org/)
 - [echarts](https://echarts.apache.org/examples/en/)
 
+# Install
+
+```bash
+$ git clone https://github.com/MohammedAl-Rowad/Davalpa
+$ cd Davalpa
+$ git checkout code
+$ npm install
+$ npm run serve
+```
+
 # Note
 
 You can think of this as a POC, it will be very laggy when you try a large data sets, there is no joins and the data only shown in 2 dimensional charts
