@@ -57,13 +57,6 @@ export default {
   mounted() {
     const { x, y } = this.getXYAxis;
     const aggFunc = this.getAggFun;
-    // console.log(
-    //   chain(this.getData)
-    //     .groupBy(x)
-    //     .toPairs()
-    //     .map(pair => zipObject([x, y], pair))
-    //     .value()
-    // );
     const z = mapValues(groupBy(this.getData, x), d =>
       d.map(vizData => omit(vizData, x))
     );

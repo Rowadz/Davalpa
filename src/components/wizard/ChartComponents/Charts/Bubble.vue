@@ -54,7 +54,6 @@ export default {
         legends: Object.keys(this.getModifiedData),
         series: x
       });
-      console.log(this.chart);
       // the data should be as [...aggCol(s), y, x]
     }
   },

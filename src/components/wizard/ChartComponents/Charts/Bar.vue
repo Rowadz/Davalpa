@@ -75,7 +75,6 @@ export default {
         }
       });
     });
-    console.log(holder);
     this.chart = bar({
       legends,
       xAxis,

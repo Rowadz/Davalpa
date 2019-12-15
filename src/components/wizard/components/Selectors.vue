@@ -54,9 +54,6 @@ export default {
   computed: {
     ...mapGetters(["getOptions", "getXYAxis", "getAggFun"])
   },
-  created() {
-    console.log(this.getOptions);
-  },
   methods: {
     ...mapActions(["storeSelectedOptions"]),
     onYAxisChange(y) {

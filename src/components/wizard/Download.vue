@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     download() {
-      console.log(this.getModifiedData);
       this.loading = true;
       try {
         const b = new Blob([JSON.stringify(this.getModifiedData, null, 2)], {
